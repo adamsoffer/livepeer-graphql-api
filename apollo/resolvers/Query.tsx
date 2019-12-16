@@ -3,12 +3,13 @@ import LivepeerSDK from "@livepeer/sdk";
 import Utils from "web3-utils";
 
 export async function account(_obj, _args, _ctx, _info) {
+  const address = _args.id.toLowerCase();
   const { rpc } = await LivepeerSDK({ gas: null });
-  const { allowance } = await rpc.getDelegator(_args.id);
+  const { allowance } = await rpc.getDelegator(address);
   return {
     id: _args.id,
-    tokenBalance: await rpc.getTokenBalance(_args.id),
-    ethBalance: await rpc.getEthBalance(_args.id),
+    tokenBalance: await rpc.getTokenBalance(address),
+    ethBalance: await rpc.getEthBalance(address),
     allowance: allowance
   };
 }
@@ -38,8 +39,8 @@ export async function threeBoxSpace(_obj, _args, _ctx, _info) {
   let profile;
   let space;
 
-  profile = await Box.getProfile(_args.id);
-  space = await Box.getSpace(_args.id, "livepeer");
+  profile = await Box.getProfile(id);
+  space = await Box.getSpace(id, "livepeer");
 
   if (space.defaultProfile === "3box") {
     useThreeBox = true;

@@ -69,20 +69,22 @@ export default async () => {
               gas: null
             });
 
-            const delegator = await sdk.rpc.getDelegator(_delegator.id);
+            const delegator = await sdk.rpc.getDelegator(
+              _delegator.id.toLowerCase()
+            );
             return delegator.pendingStake;
           }
         },
         tokenBalance: {
           async resolve(_delegator, _args, _context, _info) {
             const { rpc } = await LivepeerSDK({ gas: null });
-            return await rpc.getTokenBalance(_delegator.id);
+            return await rpc.getTokenBalance(_delegator.id.toLowerCase());
           }
         },
         ethBalance: {
           async resolve(_delegator, _args, _context, _info) {
             const { rpc } = await LivepeerSDK({ gas: null });
-            return await rpc.getEthBalance(_delegator.id);
+            return await rpc.getEthBalance(_delegator.id.toLowerCase());
           }
         }
       }
