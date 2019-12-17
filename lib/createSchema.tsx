@@ -9,8 +9,7 @@ import {
 } from "graphql-tools";
 
 const subgraphEndpoint =
-  "https://api.thegraph.com/subgraphs/name/livepeer/livepeer";
-const isProd = process.env.NODE_ENV === "production";
+  "https://api.thegraph.com/subgraphs/name/livepeer/livepeer-canary";
 
 export default async () => {
   const subgraphServiceLink = new HttpLink({
