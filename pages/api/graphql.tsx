@@ -23,7 +23,9 @@ const run = async (context, request) => {
     introspection: true,
     playground: true
   });
+
   const handler = apolloServer.createHandler({ path: "/api/graphql" });
+
   const response = await runHandler(request, context, handler);
   return response;
 };
