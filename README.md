@@ -1,4 +1,4 @@
-This repo provides an api that adds some useful fields to the Livepeer Subgraph that are not yet being indexed using GraphQL schema stitching. The following fields are provided: 
+A Livepeer API that adds some useful fields to the Livepeer Subgraph which are not yet being indexed. The following fields are provided: 
 
 - `pendingStake`, `tokenBalance`, `ethBalance` are added to the `Delegator` entity.
 - A `Protocol` entity is added with fields `paused`,  `inflation`, `inflationChange`, `totalTokenSupply`, `totalBondedToken`
